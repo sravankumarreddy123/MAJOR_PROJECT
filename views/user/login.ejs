@@ -1,0 +1,35 @@
+<% layout("/layouts/boilerplate.ejs") -%>
+<body>
+    <div class="container mt-4">
+    <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-5">
+
+    <form method="post" action="/login" novalidate class="needs-validation">
+        <div  class="mb-3">
+            <h3>Login</h3>
+                <label for="username" class="form-label">username</label>
+                <input placeholder="username" name = "username" type="text" class="form-control" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+                <div class="invalid-feedback">
+                    Please select a valid state.
+                </div>
+        </div>
+        <div  class="mb-3">
+                <label for="password" class="form-label">passport</label>
+                <input placeholder="password" name = "password" type="password" class="form-control" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+                <div class="invalid-feedback">
+                    Please select a valid state.
+                </div>
+        </div>
+        <button class="btn btn-dark">Login</button>
+    </form>
+    </div>
+</div>
+</div>
+    
+</body>
