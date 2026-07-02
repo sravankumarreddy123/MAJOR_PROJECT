@@ -3,6 +3,8 @@
 
 <style>
 
+    /* Filters */
+
     #filters{
         display:flex;
         flex-wrap:wrap;
@@ -15,14 +17,14 @@
     .filter{
         text-align:center;
         opacity:.7;
-        transition:.3s;
         cursor:pointer;
+        transition:.3s;
         min-width:80px;
     }
 
     .filter:hover{
         opacity:1;
-        transform:translateY(-3px);
+        transform:translateY(-4px);
     }
 
     .filter i{
@@ -31,28 +33,32 @@
 
     .filter p{
         font-size:.85rem;
-        margin-top:.4rem;
+        margin-top:.5rem;
         margin-bottom:0;
     }
+
+    /* Cards */
 
     .listing-link{
         text-decoration:none;
         color:black;
         display:block;
+        width:100%;
     }
 
     .listing-card{
         border:none;
         border-radius:15px;
         overflow:hidden;
+        width:90%;
+        margin:0 auto;
+        box-shadow:0 4px 12px rgba(0,0,0,.1);
         transition:.3s;
-        box-shadow:0 3px 10px rgba(0,0,0,.1);
-        height:100%;
     }
 
     .listing-card:hover{
         transform:translateY(-6px);
-        box-shadow:0 10px 25px rgba(0,0,0,.18);
+        box-shadow:0 12px 25px rgba(0,0,0,.18);
     }
 
     .listing-card img{
@@ -71,22 +77,26 @@
         margin-bottom:0;
     }
 
-    @media (max-width:991px){
+    /* Tablet */
+
+    @media(max-width:992px){
+
+        .listing-card{
+            width:95%;
+        }
 
         .listing-card img{
-            height:260px;
+            height:270px;
         }
 
     }
 
-    @media (max-width:768px){
+    /* Mobile */
+
+    @media(max-width:768px){
 
         #filters{
             gap:1rem;
-        }
-
-        .filter{
-            min-width:70px;
         }
 
         .filter i{
@@ -97,13 +107,17 @@
             font-size:.75rem;
         }
 
+        .listing-card{
+            width:100%;
+        }
+
         .listing-card img{
             height:240px;
         }
 
     }
 
-    @media (max-width:576px){
+    @media(max-width:576px){
 
         #filters{
             flex-wrap:nowrap;
@@ -128,7 +142,9 @@
 
 </style>
 
-<div class="container-fluid">
+<div class="container">
+
+    <!-- Filters -->
 
     <div id="filters">
 
@@ -174,13 +190,15 @@
 
     </div>
 
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 gx-5 gy-5 px-4">
+    <!-- Listings -->
+
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 gx-5 gy-5 justify-content-center">
 
         <% for(let listing of allListings){ %>
 
-        <div class="col d-flex">
+        <div class="col d-flex justify-content-center">
 
-            <a href="/listing/<%= listing._id %>" class="listing-link w-100">
+            <a href="/listing/<%= listing._id %>" class="listing-link">
 
                 <div class="card listing-card">
 
@@ -191,9 +209,13 @@
                     <div class="card-body">
 
                         <p class="card-text">
+
                             <strong><%= listing.title %></strong>
+
                             <br>
+
                             &#8377;<%= listing.price.toLocaleString("en-IN") %>/night
+
                         </p>
 
                     </div>
