@@ -8,8 +8,8 @@
         flex-wrap:wrap;
         justify-content:center;
         align-items:center;
-        gap:1rem;
-        margin:1.5rem 0;
+        gap:1.5rem;
+        margin:2rem 0;
     }
 
     .filter{
@@ -38,6 +38,7 @@
     .listing-link{
         text-decoration:none;
         color:black;
+        display:block;
     }
 
     .listing-card{
@@ -45,13 +46,13 @@
         border-radius:15px;
         overflow:hidden;
         transition:.3s;
-        margin:auto;
         box-shadow:0 3px 10px rgba(0,0,0,.1);
+        height:100%;
     }
 
     .listing-card:hover{
         transform:translateY(-6px);
-        box-shadow:0 8px 20px rgba(0,0,0,.15);
+        box-shadow:0 10px 25px rgba(0,0,0,.18);
     }
 
     .listing-card img{
@@ -81,7 +82,7 @@
     @media (max-width:768px){
 
         #filters{
-            gap:.8rem;
+            gap:1rem;
         }
 
         .filter{
@@ -97,7 +98,7 @@
         }
 
         .listing-card img{
-            height:230px;
+            height:240px;
         }
 
     }
@@ -105,9 +106,9 @@
     @media (max-width:576px){
 
         #filters{
-            justify-content:flex-start;
-            overflow-x:auto;
             flex-wrap:nowrap;
+            overflow-x:auto;
+            justify-content:flex-start;
             padding-bottom:10px;
         }
 
@@ -117,10 +118,6 @@
 
         .filter{
             flex:0 0 auto;
-        }
-
-        .listing-card{
-            width:100% !important;
         }
 
         .listing-card img{
@@ -177,11 +174,11 @@
 
     </div>
 
-    <div class="row g-4 justify-content-center">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 gx-5 gy-5 px-4">
 
         <% for(let listing of allListings){ %>
 
-        <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 d-flex justify-content-center">
+        <div class="col d-flex">
 
             <a href="/listing/<%= listing._id %>" class="listing-link w-100">
 
@@ -194,13 +191,9 @@
                     <div class="card-body">
 
                         <p class="card-text">
-
                             <strong><%= listing.title %></strong>
-
                             <br>
-
                             &#8377;<%= listing.price.toLocaleString("en-IN") %>/night
-
                         </p>
 
                     </div>
